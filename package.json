@@ -4,7 +4,7 @@
   "description": "Electron App - Todos",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "electron": "electron . --enable-logging"
   },
   "repository": {
     "type": "git",
