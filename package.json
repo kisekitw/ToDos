@@ -1,0 +1,25 @@
+{
+  "name": "todos",
+  "version": "1.0.0",
+  "description": "Electron App - Todos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kisekitw/ToDos.git"
+  },
+  "keywords": [
+    "Electron"
+  ],
+  "author": "Xavier",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kisekitw/ToDos/issues"
+  },
+  "homepage": "https://github.com/kisekitw/ToDos#readme",
+  "dependencies": {
+    "electron": "^2.0.5"
+  }
+}
