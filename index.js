@@ -5,6 +5,7 @@ const { app, BrowserWindow, Menu, ipcMain } = electron;
 let mainWindow;
 let addWindow;
 
+// initial app windows
 app.on('ready', () => {
     mainWindow = new BrowserWindow({});
     mainWindow.loadURL(`file://${__dirname}/main.html`);
@@ -13,6 +14,7 @@ app.on('ready', () => {
     Menu.setApplicationMenu(mainMenu);
 });
 
+// create add window
 function createAddWindow() {
     addWindow = new BrowserWindow({
         width: 300,
@@ -25,12 +27,14 @@ function createAddWindow() {
     addWindow.on('closed', () => addWindow = null);
 }
 
+// receive child window todo add event then emit to main windows
 ipcMain.on('todo:add', (event, todo) => {
     mainWindow.webContents.send('todo:add', todo);
     // Activate closed event 
     addWindow.close();
 });
 
+// construct MenuItem
 const menuTemplate = [
     {
         label: 'File',
@@ -38,6 +42,10 @@ const menuTemplate = [
             { 
                 label: 'New TODO',
                 click: () => createAddWindow()
+             },
+             {
+                 label: 'Clear TODO List',
+                 click: () => { mainWindow.webContents.send('todo:clear') }
              },
             {
                 label: 'Quit',
